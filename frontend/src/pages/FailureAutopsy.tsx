@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SectionTitle, Panel, SeverityChip, ConfidenceChip, EmptyState } from '@/components/ui/primitives';
 import { NoAnalysis } from '@/components/NoAnalysis';
@@ -116,9 +117,9 @@ function FailureCard({
                     <p className="mt-2 font-mono text-[11px] text-ritual-pink/70">correlationId: {f.correlationId}</p>
                   )}
                   {f.recommendationId && (
-                    <a href="#/fix" onClick={(e) => { e.preventDefault(); window.location.hash = ''; }} className="mt-3 inline-block text-xs text-ritual-green hover:underline">
+                    <Link to="/app/fix" className="mt-3 inline-block text-xs text-ritual-green hover:underline">
                       See recommendation in Fix Console →
-                    </a>
+                    </Link>
                   )}
                 </div>
               </div>

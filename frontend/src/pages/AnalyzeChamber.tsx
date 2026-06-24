@@ -312,13 +312,13 @@ export function AnalyzeChamber() {
               )}
 
               <div className="mt-4 flex flex-wrap gap-2">
-                <Button variant="primary" onClick={() => navigate('/recorder')}>
+                <Button variant="primary" onClick={() => navigate('/app/recorder')}>
                   Open Flight Recorder →
                 </Button>
-                <Button variant="ghost" onClick={() => navigate('/map')}>
+                <Button variant="ghost" onClick={() => navigate('/app/map')}>
                   Signal Map
                 </Button>
-                <Button variant="ghost" onClick={() => navigate('/autopsy')}>
+                <Button variant="ghost" onClick={() => navigate('/app/autopsy')}>
                   Autopsy
                 </Button>
               </div>

@@ -5,13 +5,13 @@ import { Button } from './ui/primitives';
 import { shortAddr } from '@/lib/ritual';
 
 const MOBILE_NAV = [
-  { to: '/', label: 'Analyze' },
-  { to: '/recorder', label: 'Recorder' },
-  { to: '/autopsy', label: 'Autopsy' },
-  { to: '/map', label: 'Map' },
-  { to: '/fix', label: 'Fix' },
-  { to: '/kit', label: 'Kit' },
-  { to: '/vault', label: 'Vault' },
+  { to: '/app', label: 'Analyze' },
+  { to: '/app/recorder', label: 'Recorder' },
+  { to: '/app/autopsy', label: 'Autopsy' },
+  { to: '/app/map', label: 'Map' },
+  { to: '/app/fix', label: 'Fix' },
+  { to: '/app/kit', label: 'Kit' },
+  { to: '/app/vault', label: 'Vault' },
 ];
 
 export function TopBar() {
@@ -58,6 +58,7 @@ export function TopBar() {
           <NavLink
             key={n.to}
             to={n.to}
+            end={n.to === '/app'}
             className={({ isActive }) =>
               `whitespace-nowrap rounded-md px-3 py-1.5 text-xs ${
                 isActive ? 'bg-ritual-green/10 text-ritual-green' : 'text-gray-500'

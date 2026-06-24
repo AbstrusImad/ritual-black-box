@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Outlet, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useAccount } from 'wagmi';
 import { Sidebar } from './components/Sidebar';
 import { TopBar } from './components/TopBar';
 import { CommandPalette } from './components/CommandPalette';
 import { useStore } from './store/useStore';
 
+import { Landing } from './pages/Landing';
 import { AnalyzeChamber } from './pages/AnalyzeChamber';
 import { FlightRecorder } from './pages/FlightRecorder';
 import { FailureAutopsy } from './pages/FailureAutopsy';
@@ -27,13 +29,15 @@ function PageTransition({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
+// Application shell (sidebar + topbar). Requires a connected wallet — if none,
+// bounce back to the landing page where the user connects to enter.
+function AppLayout() {
+  const { isConnected } = useAccount();
   const location = useLocation();
-  const loadVault = useStore((s) => s.loadVault);
 
-  useEffect(() => {
-    loadVault();
-  }, [loadVault]);
+  if (!isConnected) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <div className="flex min-h-screen">
@@ -43,20 +47,38 @@ export default function App() {
         <main className="flex-1 px-5 py-7 md:px-8">
           <div className="mx-auto max-w-6xl">
             <AnimatePresence mode="wait">
-              <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<PageTransition><AnalyzeChamber /></PageTransition>} />
-                <Route path="/recorder" element={<PageTransition><FlightRecorder /></PageTransition>} />
-                <Route path="/autopsy" element={<PageTransition><FailureAutopsy /></PageTransition>} />
-                <Route path="/map" element={<PageTransition><SignalMap /></PageTransition>} />
-                <Route path="/fix" element={<PageTransition><FixConsole /></PageTransition>} />
-                <Route path="/kit" element={<PageTransition><IntegrationKit /></PageTransition>} />
-                <Route path="/vault" element={<PageTransition><EvidenceVault /></PageTransition>} />
-              </Routes>
+              <PageTransition key={location.pathname}>
+                <Outlet />
+              </PageTransition>
             </AnimatePresence>
           </div>
         </main>
       </div>
       <CommandPalette />
     </div>
+  );
+}
+
+export default function App() {
+  const loadVault = useStore((s) => s.loadVault);
+
+  useEffect(() => {
+    loadVault();
+  }, [loadVault]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/app" element={<AppLayout />}>
+        <Route index element={<AnalyzeChamber />} />
+        <Route path="recorder" element={<FlightRecorder />} />
+        <Route path="autopsy" element={<FailureAutopsy />} />
+        <Route path="map" element={<SignalMap />} />
+        <Route path="fix" element={<FixConsole />} />
+        <Route path="kit" element={<IntegrationKit />} />
+        <Route path="vault" element={<EvidenceVault />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }

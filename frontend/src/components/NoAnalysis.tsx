@@ -15,7 +15,7 @@ export function NoAnalysis({ area }: { area: string }) {
       body={`${area} reconstructs the on-chain story of a contract. Insert a contract address in the Analyze Chamber, or load a demo to see how it works.`}
       action={
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button variant="primary" onClick={() => navigate('/')}>
+          <Button variant="primary" onClick={() => navigate('/app')}>
             Open Analyze Chamber
           </Button>
           <Button

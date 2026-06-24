@@ -32,13 +32,13 @@ export function CommandPalette() {
   }, [open, setOpen]);
 
   const commands: Command[] = [
-    { id: 'go-analyze', label: 'Go to Analyze Chamber', hint: 'navigate', run: () => navigate('/') },
-    { id: 'go-recorder', label: 'Go to Flight Recorder', hint: 'navigate', run: () => navigate('/recorder') },
-    { id: 'go-autopsy', label: 'Go to Failure Autopsy', hint: 'navigate', run: () => navigate('/autopsy') },
-    { id: 'go-map', label: 'Go to Signal Map', hint: 'navigate', run: () => navigate('/map') },
-    { id: 'go-fix', label: 'Go to Fix Console', hint: 'navigate', run: () => navigate('/fix') },
-    { id: 'go-kit', label: 'Go to Integration Kit', hint: 'navigate', run: () => navigate('/kit') },
-    { id: 'go-vault', label: 'Go to Evidence Vault', hint: 'navigate', run: () => navigate('/vault') },
+    { id: 'go-analyze', label: 'Go to Analyze Chamber', hint: 'navigate', run: () => navigate('/app') },
+    { id: 'go-recorder', label: 'Go to Flight Recorder', hint: 'navigate', run: () => navigate('/app/recorder') },
+    { id: 'go-autopsy', label: 'Go to Failure Autopsy', hint: 'navigate', run: () => navigate('/app/autopsy') },
+    { id: 'go-map', label: 'Go to Signal Map', hint: 'navigate', run: () => navigate('/app/map') },
+    { id: 'go-fix', label: 'Go to Fix Console', hint: 'navigate', run: () => navigate('/app/fix') },
+    { id: 'go-kit', label: 'Go to Integration Kit', hint: 'navigate', run: () => navigate('/app/kit') },
+    { id: 'go-vault', label: 'Go to Evidence Vault', hint: 'navigate', run: () => navigate('/app/vault') },
     { id: 'save', label: 'Save current analysis to Vault', hint: 'action', run: () => saveCurrentToVault() },
     ...DEMO_LIST.map((d) => ({
       id: `demo-${d.analysis.id}`,
@@ -46,7 +46,7 @@ export function CommandPalette() {
       hint: 'demo',
       run: () => {
         void startAnalysis(d.analysis.identity.address, 'demo');
-        navigate('/recorder');
+        navigate('/app/recorder');
       },
     })),
   ];

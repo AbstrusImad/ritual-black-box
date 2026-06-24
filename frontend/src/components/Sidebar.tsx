@@ -1,15 +1,15 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useStore } from '@/store/useStore';
 
 const NAV = [
-  { to: '/', label: 'Analyze Chamber', glyph: '◎', desc: 'Insert a signal' },
-  { to: '/recorder', label: 'Flight Recorder', glyph: '⏱', desc: 'Chronological history' },
-  { to: '/autopsy', label: 'Failure Autopsy', glyph: '⚠', desc: 'Open the wreck' },
-  { to: '/map', label: 'Signal Map', glyph: '⬡', desc: 'Node relationships' },
-  { to: '/fix', label: 'Fix Console', glyph: '⚙', desc: 'What to do next' },
-  { to: '/kit', label: 'Integration Kit', glyph: '◇', desc: 'BlackBoxLogger.sol' },
-  { to: '/vault', label: 'Evidence Vault', glyph: '▣', desc: 'Saved analyses' },
+  { to: '/app', label: 'Analyze Chamber', glyph: '◎', desc: 'Insert a signal' },
+  { to: '/app/recorder', label: 'Flight Recorder', glyph: '⏱', desc: 'Chronological history' },
+  { to: '/app/autopsy', label: 'Failure Autopsy', glyph: '⚠', desc: 'Open the wreck' },
+  { to: '/app/map', label: 'Signal Map', glyph: '⬡', desc: 'Node relationships' },
+  { to: '/app/fix', label: 'Fix Console', glyph: '⚙', desc: 'What to do next' },
+  { to: '/app/kit', label: 'Integration Kit', glyph: '◇', desc: 'BlackBoxLogger.sol' },
+  { to: '/app/vault', label: 'Evidence Vault', glyph: '▣', desc: 'Saved analyses' },
 ];
 
 export function Sidebar() {
@@ -19,7 +19,7 @@ export function Sidebar() {
   return (
     <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col border-r border-gray-800/80 bg-black/40 px-4 py-6 backdrop-blur-md lg:flex">
       <div className="mb-8 px-2">
-        <div className="flex items-center gap-2.5">
+        <Link to="/" className="flex items-center gap-2.5">
           <div className="relative flex h-9 w-9 items-center justify-center rounded-md border border-ritual-green/40 bg-ritual-green/5">
             <span className="text-ritual-green text-glow-green">◼</span>
             <span className="absolute inset-0 animate-pulse-green rounded-md" />
@@ -28,7 +28,7 @@ export function Sidebar() {
             <div className="font-display text-sm font-bold leading-none text-gray-100">RITUAL</div>
             <div className="font-display text-sm font-bold leading-none text-ritual-green text-glow-green">BLACK BOX</div>
           </div>
-        </div>
+        </Link>
         <p className="mt-3 text-[10px] leading-relaxed text-gray-600">
           Forensic flight recorder for Ritual-native agents & async workflows.
         </p>
@@ -39,6 +39,7 @@ export function Sidebar() {
           <NavLink
             key={item.to}
             to={item.to}
+            end={item.to === '/app'}
             className={({ isActive }) =>
               `group relative flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-200 ${
                 isActive

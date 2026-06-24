@@ -18,6 +18,8 @@ and tells you, honestly, what it *cannot* know.
 > Built for Ritual L1 testnet · chain ID **1979** · powered by the
 > [Ritual dApp Skills](https://skills.ritualfoundation.org/).
 
+**🔗 Live app:** https://ritual-black-box.pages.dev
+
 ---
 
 ## What is inside the Black Box?
