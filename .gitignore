@@ -1,0 +1,35 @@
+# ===== Dependencies =====
+node_modules/
+**/node_modules/
+
+# ===== Env / secrets (never publish) =====
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# ===== Frontend build =====
+frontend/dist/
+dist/
+*.local
+
+# ===== Foundry / contracts =====
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+contracts/lib/
+
+# ===== Cloned Ritual skills (not part of this project) =====
+ritual-dapp-skills/
+
+# ===== Build/session metadata =====
+.ritual-build/
+
+# ===== Editor / OS =====
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
