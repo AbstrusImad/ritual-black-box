@@ -140,6 +140,40 @@ Full sources live in [`contracts/src`](./contracts/src):
 
 ---
 
+## AI Integration Skill
+
+Don't want to wire the events by hand? Install the **BlackBox skill** into your
+AI coding agent and let it instrument your contract for you. The skill lives in
+[`blackbox-skill/`](./blackbox-skill) and works with Claude Code, Cursor, Codex,
+and Gemini.
+
+> **Scope:** the skill teaches an AI to *emit the BlackBoxLogger events
+> correctly* — nothing else. It does **not** diagnose contracts. Diagnosis is the
+> job of the Black Box app. The skill makes contracts observable; the app reads
+> them.
+
+**Quick start (Claude Code):**
+
+```bash
+git clone https://github.com/AbstrusImad/ritual-black-box.git
+cp -r ritual-black-box/blackbox-skill ~/.claude/skills/ritual-blackbox
+```
+
+Then tell your agent:
+
+```
+Read the file blackbox-skill/SKILL.md and follow its instructions to
+instrument my contract with BlackBoxLogger.
+```
+
+Per-agent install commands (Cursor, Codex, Gemini, others) are available in-app
+on the **AI Skill** page, and in [`blackbox-skill/README.md`](./blackbox-skill/README.md).
+
+The flow: your AI emits the events → you deploy → you analyze the address in the
+Black Box app and see a **verified** flight record.
+
+---
+
 ## Ritual concepts used
 
 | Concept | Where it shows up |
