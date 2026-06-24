@@ -11,6 +11,7 @@ const MOBILE_NAV = [
   { to: '/app/map', label: 'Map' },
   { to: '/app/fix', label: 'Fix' },
   { to: '/app/kit', label: 'Kit' },
+  { to: '/app/skill', label: 'AI Skill' },
   { to: '/app/vault', label: 'Vault' },
 ];
 

@@ -9,6 +9,7 @@ const NAV = [
   { to: '/app/map', label: 'Signal Map', glyph: '⬡', desc: 'Node relationships' },
   { to: '/app/fix', label: 'Fix Console', glyph: '⚙', desc: 'What to do next' },
   { to: '/app/kit', label: 'Integration Kit', glyph: '◇', desc: 'BlackBoxLogger.sol' },
+  { to: '/app/skill', label: 'AI Skill', glyph: '✦', desc: 'Let your AI integrate' },
   { to: '/app/vault', label: 'Evidence Vault', glyph: '▣', desc: 'Saved analyses' },
 ];
 

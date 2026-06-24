@@ -15,6 +15,7 @@ import { SignalMap } from './pages/SignalMap';
 import { FixConsole } from './pages/FixConsole';
 import { IntegrationKit } from './pages/IntegrationKit';
 import { EvidenceVault } from './pages/EvidenceVault';
+import { SkillPage } from './pages/SkillPage';
 
 function PageTransition({ children }: { children: React.ReactNode }) {
   return (
@@ -76,6 +77,7 @@ export default function App() {
         <Route path="map" element={<SignalMap />} />
         <Route path="fix" element={<FixConsole />} />
         <Route path="kit" element={<IntegrationKit />} />
+        <Route path="skill" element={<SkillPage />} />
         <Route path="vault" element={<EvidenceVault />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

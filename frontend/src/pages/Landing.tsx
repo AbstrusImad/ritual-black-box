@@ -267,6 +267,47 @@ export function Landing() {
         </div>
       </section>
 
+      {/* ===== AI Skill ===== */}
+      <section className="relative z-10 mx-auto max-w-6xl px-6 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="overflow-hidden rounded-2xl border border-ritual-green/30 bg-gradient-to-br from-ritual-green/10 via-ritual-elevated/40 to-transparent p-8 md:p-10"
+        >
+          <div className="grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
+            <div>
+              <div className="font-mono text-xs uppercase tracking-[0.3em] text-ritual-green/70">AI Integration Skill</div>
+              <h2 className="mt-2 font-display text-3xl font-bold text-gray-100">
+                Let your AI <span className="text-ritual-green">install the kit</span>
+              </h2>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-400">
+                Install the BlackBox skill into Claude, Cursor, Codex or Gemini. Your agent then emits the right
+                events in your Ritual contract automatically — so it earns a verified reconstruction here. The skill
+                teaches integration only; diagnosis stays in this app.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="https://github.com/AbstrusImad/ritual-black-box/tree/main/blackbox-skill"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-lg border border-gray-700 px-5 py-2.5 text-sm font-semibold text-gray-200 transition-colors hover:border-ritual-green/50 hover:text-ritual-green"
+                >
+                  Skill on GitHub ↗
+                </a>
+              </div>
+            </div>
+            <div className="rounded-xl border border-gray-800 bg-black/60 p-4 font-mono text-[11px] leading-relaxed text-gray-300">
+              <div className="text-gray-500"># Claude Code</div>
+              <div className="text-ritual-green">git clone https://github.com/AbstrusImad/ritual-black-box.git</div>
+              <div className="text-ritual-green">cp -r ritual-black-box/blackbox-skill ~/.claude/skills/</div>
+              <div className="mt-2 text-gray-500"># then tell your agent:</div>
+              <div className="text-gray-300">"Read blackbox-skill/SKILL.md and follow it."</div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* ===== Honesty band ===== */}
       <section className="relative z-10 mx-auto max-w-6xl px-6 py-16">
         <motion.div

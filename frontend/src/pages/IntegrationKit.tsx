@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SectionTitle, Panel, CopyButton } from '@/components/ui/primitives';
 import { SNIPPETS, RECOMMENDED_EVENTS } from '@/lib/integrationKit';
 
@@ -28,6 +29,24 @@ export function IntegrationKit() {
           </div>
         </div>
       </Panel>
+
+      {/* AI Skill banner — links to the dedicated skill page */}
+      <Link to="/app/skill" className="mb-6 block">
+        <div className="group flex items-center justify-between gap-4 rounded-xl border border-ritual-green/30 bg-gradient-to-r from-ritual-green/10 to-transparent p-5 transition-all hover:border-ritual-green/60 hover:shadow-glow-green">
+          <div className="flex items-center gap-4">
+            <span className="text-2xl text-ritual-green">✦</span>
+            <div>
+              <div className="font-display text-base text-gray-100">Don't want to copy code by hand?</div>
+              <p className="mt-0.5 text-sm text-gray-400">
+                Give the AI Integration Skill to Claude, Cursor, Codex or Gemini and let it emit the events for you.
+              </p>
+            </div>
+          </div>
+          <span className="shrink-0 font-medium text-ritual-green transition-transform group-hover:translate-x-1">
+            Open AI Skill →
+          </span>
+        </div>
+      </Link>
 
       {/* Quick start: 4 plain steps */}
       <Panel className="mb-6 p-5">
